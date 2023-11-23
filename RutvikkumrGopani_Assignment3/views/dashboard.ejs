@@ -1,0 +1,87 @@
+        
+        
+        
+        <!DOCTYPE html>
+        
+            <html lang="en">
+
+                    <%- include('layouts/header.ejs'); -%>
+         
+            <body>
+                <!-- Navigation-->
+            
+                <%- include('layouts/navbar.ejs'); -%>
+
+
+                
+                <!-- Page Header-->
+                    <header class="masthead" style="background-image: url('/assets/img/home-bg.jpg')">
+                
+                        
+                        
+                        <div class="container position-relative px-4 px-lg-5">
+                            <div class="row gx-4 gx-lg-5 justify-content-center">
+                        
+                                <div class="col-md-10 col-lg-8 col-xl-7">
+                        
+                                    <div class="site-heading">
+                                        
+                                        <h1>Dashboard</h1>
+                        
+                                        <span class="subheading">Drive Test Booking</span>
+                        
+         
+                                    </div>
+         
+                                </div>
+         
+                            </div>
+         
+                        </div>
+                        
+         
+                    </header>
+
+
+                    
+                    <!-- Main Content-->
+                    
+                   <div class="container custom-container">
+    <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7 custom-col">
+
+            <!-- Message for the update data  -->
+            <% if(typeof message !='undefined') { %>
+                <div class="alert-message">
+                    <b><%= message %></b>
+                </div>
+            <% } %>
+
+            <!-- Post preview -->
+            <div class="post-preview">
+                <a href="/g" class="post-link">
+                    <h2 class="post-title">You can book G2/G drive test here</h2>
+                    <h3 class="post-subtitle">You can book G2/G drive test here</h3>
+                </a>
+                <p class="post-meta">
+                    Posted by <a href="#!" class="author-link">Drive Test Center</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+                    <!-- Footer-->
+                   
+                    <%- include('layouts/footer.ejs'); -%>
+
+                        <!-- Script  -->
+                   
+                        <%- include('layouts/script.ejs'); -%>
+
+            </body>
+
+        </html>

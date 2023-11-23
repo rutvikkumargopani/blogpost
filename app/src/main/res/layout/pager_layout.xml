@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        /> <!-- Replace 'placeholder' with actual drawable resource -->
+
+    <TextView
+        android:id="@+id/txtBrand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgPhone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Brand"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/txtPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtBrand"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Price"
+        android:textSize="18sp" />
+</RelativeLayout>

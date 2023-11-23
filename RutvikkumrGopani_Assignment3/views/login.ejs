@@ -1,0 +1,230 @@
+
+
+
+
+<!DOCTYPE html>
+
+
+<html lang="en">
+                
+
+<%- include('layouts/header') -%>
+
+
+
+<body>
+
+    <!-- Navigation -->
+                    <%- include('layouts/navbar') -%>
+
+                        <!-- Page Header -->
+                        <header class="masthead" style="background-image: url('assets/img/contact-bg.jpg')">
+                            <div class="container position-relative px-4 px-lg-5">
+
+                                <div class="row gx-4 gx-lg-5 justify-content-center">
+
+                                    <div class="col-md-10 col-lg-8 col-xl-7">
+
+                                        <div class="page-heading">
+
+                                            <h1>Login / Sign Up</h1>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </header>
+
+
+                        
+                        <!-- Main Content -->
+                        
+                        
+
+
+
+                        <main class="mb-4 borderform">
+
+                            <div class="container px-4 px-lg-5">
+
+                                <div class="row gx-4 gx-lg-5 justify-content-center">
+
+                    <!-- Sign-Up Form -->
+
+                    <div class="col-md-6 p-5">
+
+                        <div class="my-5">
+
+                            <h2>Sign Up</h2>
+                            
+                            <form class="signup-form" id="signupform" action="/post" method="POST" data-sb-form-api-token="API_TOKEN">
+
+
+                                <div class="form-group">
+                            
+                                    <label for="signup-username">Username</label>
+                                    <input class="form-control" id="signup-username" name="username" type="text" placeholder="Enter your username..." data-sb-validations="required,username" required />
+                                    <div class="invalid-feedback" data-sb-feedback="signup-username:required">Username Must Be Required.</div>
+                                    <div class="invalid-feedback" data-sb-feedback="signup-username:username">Username is not valid..</div>
+                            
+                                </div>
+
+                            
+                                <div class="form-group">
+                            
+                                    <label for="signup-password">Password</label>
+                                    <input class="form-control" id="signup-password" name="password" type="password" placeholder="Enter your password..." required pattern=".{8,}" />
+                                    <div id="password-error" style="color: red;"></div>
+                            
+                                </div>
+
+                            
+                                <div class="form-group">
+                            
+                                    <label for="signup-confirmpassword">Confirm Password</label>
+                                    <input class="form-control" id="signup-confirmpassword" name="confirmpassword" type="password" placeholder="Enter your password..." data-sb-validations="required,confirmpassword" required />
+                                    <div class="invalid-feedback" data-sb-feedback="signup-confirmpassword:required">Confirm Password Must Be Required.</div>
+                            
+                                </div>
+
+                            
+                                <div class="form-group">
+                            
+                                    <label for="signup-usertype">User Type</label>
+                                    <select id="signup-usertype" name="usertype" class="form-control">
+                                        <option value="Driver">Driver</option>
+
+
+                                        
+                                        <option value="Admin">Admin</option>
+
+
+                                        <option value="Tester">Tester</option>
+                                   
+                                    </select>
+                                   
+                                    <div class="invalid-feedback" data-sb-feedback="signup-usertype:required">Select any Usertype...</div>
+                                
+                                </div>
+
+                                
+                                <button class="btn btn-primary text-uppercase" id="signupSubmitButton" type="submit">Sign Up</button>
+                           
+                            </form>
+                      
+                        </div>
+                   
+                    </div>
+
+                   
+                    <!-- Login Form -->
+                    <div class="col-md-6 p-5">
+                   
+                        <div class="my-5">
+                   
+                            <h2>Login</h2>
+                   
+                            <form id="loginForm" method="post" action="/authenticateUser" data-sb-form-api-token="API_TOKEN">
+                   
+                                <div class="form-group">
+                   
+                                    <label for="login-username">Username</label>
+                   
+                                    <input class="form-control" id="login-username" type="text" name="username" placeholder="Enter your username..." data-sb-validations="required" />
+                   
+                                    <div class="invalid-feedback" data-sb-feedback="login-username:required"> Name Must Be Required</div>
+                   
+                                </div>
+
+
+                                
+                                <div class="form-group">
+                                
+                                
+                                    <label for="login-password">Password</label>
+                                    <input class="form-control" id="login-password" type="password" name="password" placeholder="Enter your password..." data-sb-validations="required" />
+                                
+                                
+                                    <div class="invalid-feedback" data-sb-feedback="login-password:required">Password Must Be Required .</div>
+                                </div>
+
+                                
+                                <button class="btn btn-primary text-uppercase" id="loginSubmitButton" type="submit">Login</button>
+    
+                            </form>
+    
+                        </div>
+                    
+                    </div>
+
+
+                </div>
+          
+            </div>
+        
+        </main>
+
+
+
+                        <!-- Footer -->
+                        <%- include('layouts/footer') -%>
+
+                            <!-- Scripts -->
+                            <%- include('layouts/script') -%>
+
+                                <script>
+                                    function validatePassword() {
+                                        const password = document.getElementById('signup-password').value;
+                                        const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+                                        return passwordPattern.test(password);
+                                    }
+
+
+                                    
+                                    function validateForm() {
+                                    
+                                        const username = document.getElementById('signup-username').value;
+                                    
+                                        const password = document.getElementById('signup-password').value;
+                                    
+                                        const confirmPassword = document.getElementById('signup-confirmpassword').value;
+                                    
+                                        const userType = document.getElementById('signup-usertype').value;
+
+
+                                        
+                                        let isValid = true;
+
+                                        
+                                        document.getElementById('signup-username-error').textContent = '';
+                                        
+                                        document.getElementById('password-error').textContent = ''; // Custom div for password error
+                                        
+                                        document.getElementById('signup-confirmpassword-error').textContent = '';
+                                        
+                                        document.getElementById('signup-usertype-error').textContent = '';
+
+
+
+
+                                        
+                                        if (!validatePassword()) {
+                                        
+                                            document.getElementById('password-error').textContent =
+                                                'Password must be at least 8 characters long and include at least one special character.';
+                                            isValid = false;
+                                        }
+
+
+                                        return isValid;
+                                    }
+                                </script>
+
+
+                </body>
+
+            </html>

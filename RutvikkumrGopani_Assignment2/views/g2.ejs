@@ -1,0 +1,299 @@
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<%- include('layout/header.ejs'); -%>
+
+  <body>
+
+    <!-- Navigation-->
+
+    <%- include('layout/navigation.ejs'); -%>
+
+
+    <!-- Page Header-->
+    
+    <header
+      class="masthead"
+      style="background-image: url('images/contact-bg.jpg')"
+    >
+    
+
+      <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+          <div class="col-md-10 col-lg-8 col-xl-7">
+    
+            <div class="page-heading">
+              <h1>G2 Test</h1>
+    
+              <span class="subheading">You can book your G2 Test.</span>
+    
+            </div>
+    
+          </div>
+    
+        </div>
+    
+      </div>
+    </header>
+    
+    <!-- Main Content-->
+    
+    <main class="mb-4">
+    
+    
+      <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+    
+          <div class="col-md-10 col-lg-8 col-xl-7">
+    
+    <style>
+    
+    /* Style the form container */
+    
+    .col-md-10 {
+    
+      max-width: 1000px;
+                  margin: 0 auto;
+    
+                }
+    
+                
+              /*
+               Style the heading */
+              p {
+                  font-size: 24px;
+                  font-weight: bold;
+                  margin-bottom: 20px;
+              }
+          
+              /* Style the form fields */
+              .form-floating {
+                  margin-bottom: 20px;
+              }
+          
+              /* Style the labels */
+              label {
+                  font-weight: bold;
+              
+                }
+          
+
+              /*
+               Style the input fields */
+              
+               .form-control {
+              
+              
+              
+              
+              
+              
+              
+              
+                width: 100%;
+                  padding: 10px;
+                  border: 1px solid #ccc;
+                  border-radius: 5px;
+              }
+              
+          
+              /* Style the invalid feedback messages */
+              .invalid-feedback {
+                  color: red;
+        
+                  font-size: 14px;
+        
+                }
+        
+        </style>
+            <p>Personal Information</p>
+
+        
+            <% if(typeof error !='undefined' ) { %>
+        
+              <div class="form-floating">
+              <b> <%= error %> </b>
+        
+              <br />
+        
+              <p>Please... Enter your details</p>
+            </div>
+        
+            <% } %>
+
+
+            <div class="my-5">
+            
+              <form
+                id="contactForm"
+                action="/post/test"
+                method="POST"
+            
+                data-sb-form-api-token="API_TOKEN"
+            
+                >
+              <div class="container px-4 px-lg-5">
+            
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+            
+                  <div class="col-md-10 col-lg-8 col-xl-7">
+            
+                    <p>Personal Information</p>
+                        <div id="error-message" style="color: red;"></div>
+              
+                        <form id="contactForm" action="/post/test" method="POST" data-sb-form-api-token="API_TOKEN">
+              
+            
+                          <div class="form-floating">
+            
+                            
+              
+
+                            
+                            <input class="form-control" name="firstname" id="firstname" type="text" placeholder="Enter your first name..." />
+                                <label for="firstname">First Name</label>
+                            </div>
+                            <div class="form-floating">
+                                <input class="form-control" name="lastname" id="lastname" type="text" placeholder="Enter your last name..." />
+                            
+                                <label for="lastname">Last Name</label>
+                            </div>
+                            
+                            <div class="form-floating">
+                                <input class="form-control" name="license_no" id="license_no" type="text" placeholder="Enter your license number..." />
+                            
+                                <label for="license_no">License Number</label>
+                            </div>
+                            
+                            <div class="form-floating">
+                                <input class="form-control" name="age" id="age" type="number" placeholder="Enter your age..." />
+                            
+                                <label for="age">Age</label>
+                            </div>
+                            
+                            <div class="form-floating">
+                            
+                              <input class="form-control" name="dob" id="dob" type="date" placeholder="Enter your date of birth..." />
+                                <label for="dob">Date of Birth</label>
+                            
+                              </div>
+                            <!-- Car details -->
+                            
+                            <p>Car Details</p>
+                            <div class="form-floating">
+                            
+                              <input class="form-control" name="make" id="make" type="text" placeholder="Enter your car's make..." />
+                            
+                              <label for="make">Make</label>
+                            </div>
+                            
+                            <div class="form-floating">
+                                <input class="form-control" name="model" id="model" type="text" placeholder="Enter your car's model..." />
+                            
+                                <label for="model">Model</label>
+                            </div>
+                            
+                            <div class="form-floating">
+                                <input class="form-control" name="year" id="year" type="number" placeholder="Enter your car's year..." />
+                            
+                                <label for="year">Year</label>
+                            </div>
+                            
+                            <div class="form-floating">
+                                <input class="form-control" name="platno" id="platno" type="text" placeholder="Enter your car's plate number..." />
+                            
+                                <label for="platno">Plate Number</label>
+                            </div>
+                            
+                            <br />
+                            <!-- Submit Button-->
+                            
+                            <button class="btn btn-primary text-uppercase" id="submitButton" type="button" onclick="validateForm()">Submit</button>
+                        </form>
+                    </div>
+           
+                  </div>
+            </div>
+        </main>
+    
+    <script>
+    
+    function validateForm() {
+    
+      var firstName = document.getElementById('firstname').value;
+    
+    
+      var lastName = document.getElementById('lastname').value;
+    
+      var licenseNo = document.getElementById('license_no').value;
+    
+      var age = document.getElementById('age').value;
+    
+      var dob = document.getElementById('dob').value;
+    
+      var make = document.getElementById('make').value;
+    
+    
+      var model = document.getElementById('model').value;
+    
+      var year = document.getElementById('year').value;
+    
+      var platno = document.getElementById('platno').value;
+    
+
+      
+      var errorMessage = '';
+    
+
+      
+      if (firstName === '' || lastName === '' || licenseNo === '' || age === '' || dob === '' || make === '' || model === '' || year === '' || platno === '') {
+      
+      
+        errorMessage = 'Please fill out all details.';
+      
+      }
+    
+
+      
+      
+      if (age < 18) {
+      
+        errorMessage = 'You must be at least 18 years old.';
+      
+      
+      }
+    
+
+      
+      
+      if (errorMessage !== '') {
+      
+        document.getElementById('error-message').innerText = errorMessage;
+      
+      } else {
+                    // Form is valid, submit it
+      
+                    document.getElementById('contactForm').submit();
+      
+                  }
+      
+                }
+        </script>
+              </form>
+            </div>
+      
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer-->
+    <%- include('layout/footer.ejs'); -%>
+
+    <!-- Scripts  -->
+    <%- include('layout/scripts.ejs'); -%>
+  </body>
+</html>
